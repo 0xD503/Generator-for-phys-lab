@@ -81,8 +81,8 @@ void Generator_Generation (uint16_t frequency)
 		
 				TCCR3A = 1 << COM3A1 | 0 << COM3A0 | 0 << WGM30;				//	Turn on PFC PWM mode with TOP = ICR3
 				TCCR3B = 1 << WGM33 | 1 << CS32 | 0 << CS31 | 0 << CS30;		//	Prescaler = 256
-				ICR3 = (F_CPU / (2 * 2 * 256 * frequency));						//	Set the frequency, i.e. TOP value
-				temp = (F_CPU / (2 * 2 * 256 * frequency));
+				ICR3 = (F_CPU / (2 * 256 * frequency));						//	Set the frequency, i.e. TOP value
+				temp = (F_CPU / (2 * 256 * frequency));
 				OCR3A = (temp * 26 / 10000);									//	Set the duty cycle
 		
 				break;
